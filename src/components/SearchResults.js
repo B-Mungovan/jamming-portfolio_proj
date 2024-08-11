@@ -1,6 +1,10 @@
-const SearchResults = () => {
+import Tracklist from "./tracklist"
+
+function SearchResults(props) {
     return (  
-        <div></div>
+        <div className="searchResults">  
+        <Tracklist userSearchResults={props.userSearchResults}/>
+        </div>
     );
 }
  
