@@ -10,13 +10,7 @@ function Tracklist(props) {
     return (
         <div className="TrackList">
             {props.userSearchResults.map((track) => (
-                <Track
-                    key={track.id}
-                    name={track.name}
-                    artist={track.artist}
-                    album={track.album}
-                    isRemoval={false}  // Example prop, can be adjusted based on your logic
-                />
+                <Track track={track} key={track.id} onAdd={props.onAdd}/>
             ))}
         </div>
     );
