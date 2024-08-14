@@ -1,6 +1,15 @@
-const SearchResults = () => {
+import React from "react";
+import Tracklist from "./tracklist"
+
+function SearchResults(props) {
     return (  
-        <div></div>
+        <div className="searchResults">  
+        <Tracklist 
+        userSearchResults={props.userSearchResults} 
+        isRemoval={true} 
+        onAdd={props.onAdd}
+        />
+        </div>
     );
 }
  

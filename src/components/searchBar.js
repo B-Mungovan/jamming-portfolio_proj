@@ -1,8 +1,8 @@
 const SearchBar = () => {
     return (  
-        <div>
+        <div className="SearchBar" >
             <input type="text" placeholder="Search.."></input>
-            <button>Search icon</button>  
+            <button className="SearchButton">icon</button>  
         </div>
     );
 }

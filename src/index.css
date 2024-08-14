@@ -5,9 +5,41 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div header h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.SearchBar {
+  display: flex;
+  justify-content: center;
+}
+
+.playlist, .searchResults{
+  width: 30%;
+  height: 30rem;
+  background-color: cadetblue;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.playlist button { /* save to spotify button*/
+  height: 40px;
+  width: 100px;
+}
+
