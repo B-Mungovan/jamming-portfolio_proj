@@ -2,8 +2,15 @@ import React from "react";
 
 function Track(props) {
     function renderAction() {
-        return <button className="Track-action">{props.isRemoval ? "-" : "+"}</button>;
+        if (props.isRemoval) {
+            return <button className="Track-action" onClick={passTrack}>+</button>
+        } else {
+            return <button className="Track-action">-</button>
+        }
     }
+function passTrack() {
+    props.onAdd(props.track);
+}
 
     return (
         <div className="Track">

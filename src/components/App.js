@@ -37,6 +37,16 @@ function App() {
     id:"2",
   }]);
 
+  function addTrack(track) {
+    const existingTrack = playlistTracks.find((t) => t.id === track.id);
+    const newTrack = playlistTracks.concat(track);
+    if (existingTrack) {
+      console.log("Track already exists");
+    } else{
+      setPlaylistTracks(newTrack);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -46,7 +56,7 @@ function App() {
 
       <div className="content">
         <Playlist playlistName={playlistName} playlistTracks={playlistTracks}/>
-        <SearchResults userSearchResults={searchResults} />
+        <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
       </div>
 
     </div>
