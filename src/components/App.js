@@ -47,6 +47,11 @@ function App() {
     }
   }
 
+  function removeTrack(track) {
+    const existingTrack = playlistTracks.filter((t) => t.id !== track.id);
+    setPlaylistTracks(existingTrack);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -55,8 +60,15 @@ function App() {
       </header>
 
       <div className="content">
-        <Playlist playlistName={playlistName} playlistTracks={playlistTracks}/>
-        <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
+        <Playlist 
+        playlistName={playlistName} 
+        playlistTracks={playlistTracks}
+        onRemove={removeTrack}
+        />
+        <SearchResults 
+        userSearchResults={searchResults} 
+        onAdd={addTrack}
+        />
       </div>
 
     </div>
