@@ -1,16 +1,21 @@
-import React from "react";
-
 function Track(props) {
     function renderAction() {
         if (props.isRemoval) {
-            return <button className="Track-action" onClick={passTrack}>+</button>
+            return (
+                <button className="Track-action" onClick={passTrackToRemove}>-</button>
+            );
         } else {
-            return <button className="Track-action">-</button>
+            return <button className="Track-action" onClick={passTrack}>+</button>;
         }
     }
-function passTrack() {
-    props.onAdd(props.track);
-}
+
+    function passTrack() {
+        props.onAdd(props.track);
+    }
+
+    function passTrackToRemove() {
+        props.onRemove(props.track);
+    }
 
     return (
         <div className="Track">

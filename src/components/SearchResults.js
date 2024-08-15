@@ -6,7 +6,7 @@ function SearchResults(props) {
         <div className="searchResults">  
         <Tracklist 
         userSearchResults={props.userSearchResults} 
-        isRemoval={true} 
+        isRemoval={false} 
         onAdd={props.onAdd}
         />
         </div>
