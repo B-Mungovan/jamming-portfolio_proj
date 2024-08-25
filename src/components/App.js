@@ -9,7 +9,7 @@ import Playlist from './playlist';
 
 function App() {
 
-  const [playlistName, setPlaylistResults] = useState("Example platlist name");
+  const [playlistName, setPlaylistName] = useState("Example platlist name");
   const [playlistTracks, setPlaylistTracks] = useState([
     {
       name: "Example Playlist Name 1",
@@ -52,6 +52,10 @@ function App() {
     setPlaylistTracks(existingTrack);
   }
 
+  function updatePlaylistName(name) {
+    setPlaylistName(name);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -64,6 +68,7 @@ function App() {
         playlistName={playlistName} 
         playlistTracks={playlistTracks}
         onRemove={removeTrack}
+        onNameChange={updatePlaylistName}
         />
         <SearchResults 
         userSearchResults={searchResults} 
