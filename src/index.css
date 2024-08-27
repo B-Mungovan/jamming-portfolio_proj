@@ -5,8 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+  color: white;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -14,6 +15,7 @@ code {
 }
 
 div header h1 {
+  margin: auto;
   display: flex;
   justify-content: center;
 }
@@ -23,23 +25,121 @@ div header h1 {
   justify-content: space-around;
 }
 
+.App-header h1{
+  background-color: rgba(22, 21, 44);
+  height: 3.5rem;
+}
+
 .SearchBar {
   display: flex;
   justify-content: center;
+  margin: 3rem;
+  flex-direction: column;
+  align-items: center;
+}
+.SearchBar input {
+  width: 15rem;
+  height: 2rem;
+  background-color: rgba(22, 21, 44, 0.75);
+  border: 1px solid white;
+  border-radius: 20px;
+  outline: none;
+  color: white;
+  font-size: larger;
+  text-indent: 35px;
+}
+
+.SearchBar input::placeholder{
+  color: white;
+}
+
+.SearchBar input[type='text']{
+  color: white;
+  background-image: url('assets/images/glass_icon_white.png');
+  background-color: rgba(22, 21, 44, 0.75);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 7px 7px;
 }
 
 .playlist, .searchResults{
   width: 30%;
   height: 30rem;
-  background-color: cadetblue;
+  background-color: rgba(22, 21, 44, 0.95);
   margin-top: 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
+  border-radius: 10px;
 }
 
-.playlist button { /* save to spotify button*/
+.searchResults h1 {
+  margin: 2rem;
+  border-bottom: solid 1px white;
+}
+
+.playlist input {
+  margin: 2rem;
   height: 40px;
-  width: 100px;
+  background-color: transparent;
+  color: white;
+  border-style: none;
+  outline: 1px solid white;
+  font-size: larger;
+  text-indent: 5px;
 }
 
+.playlist input::placeholder{
+  color: white;
+  text-indent: 5px;
+}
+
+.Playlist-save { /*save to spotify button*/
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 3rem;
+  width: 10rem;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(22, 21, 44, 0.75);;
+  outline: none;
+  border: 1px solid white;
+  font-size: medium;
+  margin-top: 1.5rem;
+  border-radius: 30px;
+}
+
+.Track-action { /* plus and minus btn */
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.3s ease; 
+  margin: auto;
+  margin-right: 0;
+}
+
+
+.Track-action:hover{
+  color: rgb(86, 85, 85);
+  transition: color 0.2s ease, transform 0.3s ease; 
+}
+
+
+.Track {
+  border-bottom: 1px solid white;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TrackList{
+width: 100%;
+}
