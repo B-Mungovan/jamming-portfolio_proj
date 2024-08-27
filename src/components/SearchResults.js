@@ -3,7 +3,8 @@ import Tracklist from "./tracklist"
 
 function SearchResults(props) {
     return (  
-        <div className="searchResults">  
+        <div className="searchResults">
+        <h1>Results</h1>  
         <Tracklist 
         userSearchResults={props.userSearchResults} 
         isRemoval={false} 

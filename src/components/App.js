@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import SearchBar from './searchBar';
 import SearchResults from './searchResults';
 import Playlist from './playlist';
-
+import BackgroundImage from '../assets/images/jammin_background_image.jpg';
 
 
 
@@ -12,28 +12,28 @@ function App() {
   const [playlistName, setPlaylistName] = useState("Example platlist name");
   const [playlistTracks, setPlaylistTracks] = useState([
     {
-      name: "Example Playlist Name 1",
-      artist: "Example Playlist Artist 1",
-      album: "Example Playlist Album 1",
+      name: "Example track Name 1",
+      artist: "Example Artist 1",
+      album: "Example  Album 1",
       id: 1,
     },
     {
-      name: "Example Playlist Name 2",
-      artist: "Example Playlist Artist 2",
-      album: "Example Playlist Album 2",
+      name: "Example track Name 2",
+      artist: "Example Artist 2",
+      album: "Example Album 2",
       id: 2,
     }
   ]);
 
   const [searchResults, setSearchResults] = useState([{
-    name: "example track name 1",
-    artist: "example track artist 1",
-    album: "example track album 1",
+    name: "Example track name 1",
+    artist: "Example artist 1",
+    album: "Example album 1",
     id:"1",
   },{
     name: "example track name 2",
-    artist: "example track artist 2",
-    album: "example track album 2",
+    artist: "example artist 2",
+    album: "example album 2",
     id:"2",
   }]);
 
@@ -57,27 +57,40 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Jammmin</h1>
-        <SearchBar />
-      </header>
+  <div 
+    className="App" 
+    style={{
+      backgroundImage: `url(${BackgroundImage})`,
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center', 
+      backgroundRepeat: 'no-repeat', 
+      height: '120vh', 
+      width: '100vw'
+    }}
+  >
+    <header className="App-header">
+      <h1>Jammmin</h1>
+      <SearchBar />
+    </header>
 
-      <div className="content">
-        <Playlist 
+    <div className="content">
+      <Playlist 
         playlistName={playlistName} 
         playlistTracks={playlistTracks}
         onRemove={removeTrack}
         onNameChange={updatePlaylistName}
-        />
-        <SearchResults 
+      />
+      <SearchResults 
         userSearchResults={searchResults} 
         onAdd={addTrack}
-        />
-      </div>
-
+      />
     </div>
-  );
+
+    <footer>
+      {/* Footer content can go here */}
+    </footer>
+  </div>
+);
 }
 
 export default App;
