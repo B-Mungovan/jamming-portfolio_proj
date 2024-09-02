@@ -15,7 +15,7 @@ function Playlist(props) {
             onRemove={props.onRemove}
             isRemoval={true}
             />
-            <button className="Playlist-save">Save To Spotify <FontAwesomeIcon icon={faSpotify} /></button>
+            <button className="Playlist-save" onClick={props.onSave}>Save To Spotify <FontAwesomeIcon icon={faSpotify} /></button>
         </div>
      );
 }
