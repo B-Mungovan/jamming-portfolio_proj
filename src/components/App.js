@@ -3,8 +3,9 @@ import React, {useState} from 'react';
 import SearchBar from './searchBar';
 import SearchResults from './searchResults';
 import Playlist from './playlist';
-import BackgroundImage from '../assets/images/jammin_background_image.jpg';
+import BackgroundImage from '../assets/images/spotify_background_image.jpg';
 import { Spotify } from '../util/spotify';
+import Footer from './footer';
 
 
 
@@ -98,7 +99,7 @@ function App() {
     </div>
     
     <footer>
-      {/* Footer content can go here */}
+      {<Footer/>}
     </footer>
   </div>
 );
