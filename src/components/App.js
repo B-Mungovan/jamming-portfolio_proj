@@ -4,6 +4,7 @@ import SearchBar from './searchBar';
 import SearchResults from './searchResults';
 import Playlist from './playlist';
 import BackgroundImage from '../assets/images/jammin_background_image.jpg';
+import { Spotify } from '../util/spotify';
 
 
 
@@ -60,6 +61,11 @@ function App() {
     const trackURIs = playlistTracks.map((t) => t.uri);
   }
 
+  function search(term) {
+   Spotify.search(term).then((result) => setSearchResults(result));
+    console.log(term);
+  }
+
   return (
   <div 
     className="App" 
@@ -68,13 +74,13 @@ function App() {
       backgroundSize: 'cover', 
       backgroundPosition: 'center', 
       backgroundRepeat: 'no-repeat', 
-      height: '120vh', 
+      minHeight: '100vh', 
       width: '100vw'
     }}
   >
     <header className="App-header">
       <h1>Jammmin</h1>
-      <SearchBar />
+      <SearchBar onSearch={search}/>
     </header>
 
     <div className="content">
@@ -90,7 +96,7 @@ function App() {
         onAdd={addTrack}
       />
     </div>
-
+    
     <footer>
       {/* Footer content can go here */}
     </footer>

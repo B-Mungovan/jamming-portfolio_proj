@@ -1,11 +1,16 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -23,6 +28,7 @@ div header h1 {
 .content {
   display: flex;
   justify-content: space-around;
+  flex-direction: row-reverse;
 }
 
 .App-header h1{
@@ -62,6 +68,25 @@ div header h1 {
   background-position: 7px 7px;
 }
 
+.SearchBar button {
+  margin-top: 20px;
+  color: white;
+  background-color: rgba(22, 21, 44, 0.75);
+  border: 1px solid white;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  transition: color 0.2s ease, transform 0.3s ease; 
+  cursor: pointer;
+}
+
+
+.SearchBar button:hover {
+  background-color: white;
+  color: rgba(22, 21, 44, 0.75);
+  transition: color 0.2s ease, transform 0.3s ease; 
+}
+
 .playlist, .searchResults{
   width: 30%;
   height: 30rem;
@@ -71,11 +96,17 @@ div header h1 {
   align-items: center;
   flex-direction: column;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .searchResults h1 {
   margin: 2rem;
   border-bottom: solid 1px white;
+  font-size: x-large;
+  font-weight: 400;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .playlist input {
@@ -84,14 +115,23 @@ div header h1 {
   background-color: transparent;
   color: white;
   border-style: none;
-  outline: 1px solid white;
-  font-size: larger;
+  outline: none;
+  border-bottom: 1px solid white;
   text-indent: 5px;
+  font-size: x-large;
+  font-weight: 400;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .playlist input::placeholder{
   color: white;
   text-indent: 5px;
+  font-size: x-large;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
 }
 
 .Playlist-save { /*save to spotify button*/
@@ -103,12 +143,17 @@ div header h1 {
   width: 10rem;
   cursor: pointer;
   color: white;
-  background-color: rgba(22, 21, 44, 0.75);;
+  background-color: rgba(22, 21, 44, 0.75);
   outline: none;
   border: 1px solid white;
   font-size: medium;
   margin-top: 1.5rem;
   border-radius: 30px;
+}
+
+.Playlist-save:hover {
+  color: rgba(22, 21, 44, 0.75);
+  background-color: white;
 }
 
 .Track-action { /* plus and minus btn */
@@ -143,3 +188,40 @@ div header h1 {
 .TrackList{
 width: 100%;
 }
+
+footer{
+  width: 100%;
+  height: 35px;
+  margin-top: 10rem;
+  background-color: rgba(22, 21, 44, 0.95);
+}
+
+/* Style the entire scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* width for vertical scrollbar */
+  height: 12px; /* height for horizontal scrollbar */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #333; /* Dark background */
+  border-radius: 10px;
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Gray color */
+  border-radius: 10px;
+  border: 2px solid #333; /* To give padding around the thumb */
+}
+
+/* Hover effect for scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker color when hovered */
+}
+
+/* Optional: Style the corner where horizontal and vertical scrollbars meet */
+::-webkit-scrollbar-corner {
+  background-color: #333;
+}
+
