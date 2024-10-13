@@ -15,19 +15,19 @@ function App() {
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   
-  {playlistTracks.length > 0 && playlistTracks.map((track) => (
+  playlistTracks.length > 0 && playlistTracks.map((track) => (
     <div key={track.id}>
       <p>{track.name} by {track.artist}</p>
       <p>Album: {track.album}</p>
     </div>
-  ))}
+  ))
   
-  {searchResults.length > 0 && searchResults.map((track) => (
+  searchResults.length > 0 && searchResults.map((track) => (
     <div key={track.id}>
       <p>{track.name} by {track.artist}</p>
       <p>Album: {track.album}</p>
     </div>
-  ))}
+  ))
   
 
   function addTrack(track) {
