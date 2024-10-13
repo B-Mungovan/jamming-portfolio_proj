@@ -2,7 +2,6 @@ import React from "react";
 import Tracklist from "./tracklist";
 
 function SearchResults(props) {
-
     // Ensure a safe check even if the prop is undefined
     const hasSearchResults = Array.isArray(props.userSearchResults) && props.userSearchResults.length > 0;
 
