@@ -11,29 +11,30 @@ import Footer from './footer';
 
 function App() {
 
-  const [playlistName, setPlaylistName] = useState("Example platlist name");
-  const [playlistTracks, setPlaylistTracks] = useState([
-    {
-      name: "",
-      artist: "",
-      album: "",
-      id: "",
-    }
-  ]);
-
-  const [searchResults, setSearchResults] = useState([{
-    name: "",
-    artist: "",
-    album: "",
-    id:"",
-    }
-  ]);
+  const [playlistName, setPlaylistName] = useState("Example playlist name");
+  const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  
+  {playlistTracks.length > 0 && playlistTracks.map((track) => (
+    <div key={track.id}>
+      <p>{track.name} by {track.artist}</p>
+      <p>Album: {track.album}</p>
+    </div>
+  ))}
+  
+  {searchResults.length > 0 && searchResults.map((track) => (
+    <div key={track.id}>
+      <p>{track.name} by {track.artist}</p>
+      <p>Album: {track.album}</p>
+    </div>
+  ))}
+  
 
   function addTrack(track) {
     const existingTrack = playlistTracks.find((t) => t.id === track.id);
     const newTrack = playlistTracks.concat(track);
     if (existingTrack) {
-      console.log("Track already exists");
+      alert("Track already exists in playlist");
     } else{
       setPlaylistTracks(newTrack);
     }
