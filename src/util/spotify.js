@@ -1,6 +1,6 @@
 let accessToken = "";
 const clientID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-const redirectURI = "http://localhost:3000";
+const redirectURI = "https://jammingwithben.netlify.app";
 
 const Spotify = {
     getAccessToken(){
