@@ -3,32 +3,32 @@ const clientID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const redirectURI = "https://jammingwithben.netlify.app";
 
 const Spotify = {
-    getAccessToken(){
-        if (accessToken) return accessToken;
-        
-        const tokeninURL = window.location.href.match(/access_token=([^&]*)/);
+  getAccessToken() {
+    if (accessToken) return accessToken;
+    
+    const tokeninURL = window.location.href.match(/access_token=([^&]*)/);
+    const expiryTime = window.location.href.match(/expires_in=([^&]*)/);
 
-        const expiryTime = window.location.href.match(/expires_in=([^&]*)/);
+    if (tokeninURL && expiryTime) {
+        accessToken = tokeninURL[1];
+        const expiresIn = Number(expiryTime[1]);
 
-        //setting acces token and exipry time variables 
-        if (tokeninURL && expiryTime) {
-            accessToken = tokeninURL[1];
-            const expiresIn = Number(expiryTime[1]);
-        
+        // Store expiration time in local storage
+        const expirationDate = new Date().getTime() + expiresIn * 1000;
+        localStorage.setItem('spotify_token_expiration', expirationDate);
 
-        //function to reset the access token when it expires
+        // Clear access token after it expires
         window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
 
-        // clearing url after token expires
-        window.history.pushState(" Access token", null, "/");
+        // Clear the token from the URL
+        window.history.pushState("Access token", null, "/");
         return accessToken;
-        }
+    }
 
-        const redirect = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`
-        window.location = redirect;
+    const redirect = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+    window.location = redirect;
+},
 
-
-    },
 
     search(term) {
         accessToken = Spotify.getAccessToken();
