@@ -113,7 +113,7 @@ div header h1 {
 }
 
 .playlist input {
-  margin: 2rem;
+  margin: 1.4rem;
   height: 40px;
   background-color: transparent;
   color: white;
@@ -126,6 +126,7 @@ div header h1 {
   width: 80%;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .playlist input::placeholder{
@@ -238,3 +239,33 @@ footer h1{
   background-color: #333;
 }
 
+/* For small devices like phones (max-width: 600px) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .navbar, .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .playlist, .searchResults{
+    width: 49%;
+  }
+}
+
+/* For tablets (max-width: 768px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+  .container {
+    padding: 15px;
+  }
+  .navbar, .footer {
+    justify-content: space-around;
+  }
+}
